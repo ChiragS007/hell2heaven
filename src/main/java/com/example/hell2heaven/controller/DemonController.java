@@ -20,7 +20,7 @@ public class DemonController {
     @Autowired
     private DemonSvc demonSvc;
 
-    @GetMapping
+    @GetMapping("/demons")
     public List<Demons> getDemon()
     {
         log.info("returning demons");
