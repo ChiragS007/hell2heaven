@@ -11,4 +11,5 @@ public class Demons {
 
     private String Username;
     private String Password;
+    private String Email;
 }
