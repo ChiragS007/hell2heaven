@@ -1,17 +1,14 @@
-package com.example.hell2heaven.util;
+package com.example.hell2heaven.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
-import org.bson.internal.BsonUtil;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.security.Key;
 import java.util.Date;
 import java.util.function.Function;
-import java.util.logging.Logger;
 
 // making it a bean by annotating @component
 @Component
