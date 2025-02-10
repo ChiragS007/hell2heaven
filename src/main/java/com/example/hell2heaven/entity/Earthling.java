@@ -7,7 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Demons {
+public class Earthling {
 
     private String Username;
     private String Password;
