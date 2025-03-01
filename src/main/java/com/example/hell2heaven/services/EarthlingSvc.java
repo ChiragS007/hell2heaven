@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public class EarthlingSvc {
 
-    private List<Earthling> earthlingList = new ArrayList<>();
+    private final List<Earthling> earthlingList = new ArrayList<>();
 
     public List<Earthling> getEarthlingList() {
         return this.earthlingList;

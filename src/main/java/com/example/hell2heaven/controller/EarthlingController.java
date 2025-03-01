@@ -21,7 +21,7 @@ public class EarthlingController {
     private EarthlingSvc earthlingSvc;
 
     @GetMapping("/demons")
-    public List<Earthling> getDemon()
+    public List<Earthling> getEarthlings()
     {
         log.info("returning demons");
         return this.earthlingSvc.getEarthlingList();

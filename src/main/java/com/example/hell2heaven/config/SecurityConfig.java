@@ -28,7 +28,10 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authorizeRequests ->authorizeRequests
-                        .requestMatchers("/auth/**").permitAll()
+                        .requestMatchers("/public/**").permitAll()
+                        .requestMatchers("/earth/**").hasRole("EARTHLING")
+                        .requestMatchers("/guard/**").hasRole("ASTRAL_GUARD")
+                        .requestMatchers("/supreme/**").hasRole("VACUUM_SUPREME")
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(sessionManagement ->sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
