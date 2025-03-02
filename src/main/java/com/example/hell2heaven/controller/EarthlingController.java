@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/hell2heaven")
+@RequestMapping("/Earthling")
 public class EarthlingController {
 
     private static final Logger log = LoggerFactory.getLogger(EarthlingController.class);
@@ -20,10 +20,9 @@ public class EarthlingController {
     @Autowired
     private EarthlingSvc earthlingSvc;
 
-    @GetMapping("/demons")
-    public List<Earthling> getEarthlings()
-    {
-        log.info("returning demons");
+    @GetMapping("/getEarthlings")
+    public List<Earthling> getEarthlings() {
+        log.info("Fetching all Earthlings with role EARTHLING");
         return this.earthlingSvc.getEarthlingList();
     }
 }

@@ -23,18 +23,14 @@ public class AppConfig {
     }
 
     @Bean
-    public UserDetailsService userDetailsService() {
-        return username -> {
-            Optional<Earthling> user = earthlingRepository.findByUsername(username);
-            if (user.isPresent()) {
-                return User.builder()
-                        .username(user.get().getUsername())
-                        .password(user.get().getPassword()) // Password is already encoded
-                        .roles(user.get().getRole())
-                        .build();
-            }
-            throw new RuntimeException("User not found");
-        };
+    public UserDetailsService userDetailsService(EarthlingRepository earthlingRepository) {
+        return username -> earthlingRepository.findByUsername(username)
+                .map(user -> org.springframework.security.core.userdetails.User.builder()
+                        .username(user.getUsername())
+                        .password(user.getPassword())
+                        .roles(user.getRole())
+                        .build())
+                .orElseThrow(() -> new RuntimeException("User not found"));
     }
 
     @Bean
